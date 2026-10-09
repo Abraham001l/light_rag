@@ -70,11 +70,3 @@ class model(nn.Module):
         # extract generated text and return as list of strings
         generated_texts = self.tokenizer.batch_decode(outputs[:, inputs["input_ids"].shape[1]:], skip_special_tokens=True)
         return generated_texts
-
-# testing size of pooled embeddings
-if __name__ == "__main__":
-    test_model = model()
-    test_sentences = ["Hello, how are you?", "This is a test sentence.", "I am testing the model."]
-    embeddings = test_model.get_embeddings(test_sentences)
-    print(f"Embeddings shape: {embeddings.shape}")
-    print(f"Type of embeddings: {type(embeddings)}")
